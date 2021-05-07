@@ -44,6 +44,16 @@ class I18n {
 
   static String get signOff => _getText('signOff');
 
+  static String get dontHaveAccount => _getText('dontHaveAccount');
+
+  static String get forgotPassword => _getText('forgotPassword');
+
+  static String get restorePassword => _getText('restorePassword');
+
+  static String get passwordRestoration => _getText('passwordRestoration');
+
+  static String get welcome => _getText('welcome');
+
   static late Map<String, String> _localizedValues;
 
   static const _enValues = {
@@ -66,6 +76,11 @@ class I18n {
     'next': 'Next',
     'ok': 'Ok',
     'signOff': 'Sign off',
+    'dontHaveAccount': 'Don\'t have an account?',
+    'forgotPassword': 'Forgot your password?',
+    'restorePassword': 'Restore Password',
+    'passwordRestoration': 'Password Restoration',
+    'welcome': 'Welcome',
   };
 
   static const _ruValues = {
@@ -88,6 +103,11 @@ class I18n {
     'next': 'Далее',
     'ok': 'Ок',
     'signOff': 'Выход из аккаунта',
+    'dontHaveAccount': 'Нет аккаунта?',
+    'forgotPassword': 'Забыли пароль?',
+    'restorePassword': 'Восстановить пароль',
+    'passwordRestoration': 'Восстановление пароля',
+    'welcome': 'Добро пожаловать',
   };
 
   static const _allValues = {

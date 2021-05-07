@@ -7,9 +7,10 @@
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i2;
 
-import '../auth/auth_page.dart' as _i4;
-import '../home/home_page.dart' as _i6;
-import '../registration/registration_page.dart' as _i5;
+import '../home/home_page.dart' as _i7;
+import '../registration/registration_page.dart' as _i6;
+import '../restore_password/restore_password_page.dart' as _i5;
+import '../sign_in/sign_in_page.dart' as _i4;
 import '../splash/splash_page.dart' as _i3;
 
 class AppRouter extends _i1.RootStackRouter {
@@ -23,28 +24,36 @@ class AppRouter extends _i1.RootStackRouter {
         builder: (_) {
           return _i3.SplashPage();
         }),
-    AuthPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+    SignInPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i4.AuthPage();
+          return _i4.SignInPage();
         }),
+    RestorePasswordPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i5.RestorePasswordPage();
+        },
+        fullscreenDialog: true),
     RegistrationPageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i5.RegistrationPage();
+          return _i6.RegistrationPage();
         },
         fullscreenDialog: true),
     HomePageRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i6.HomePage();
+          return _i7.HomePage();
         })
   };
 
   @override
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(SplashPageRoute.name, path: '/'),
-        _i1.RouteConfig(AuthPageRoute.name, path: '/auth-page'),
+        _i1.RouteConfig(SignInPageRoute.name, path: '/sign-in-page'),
+        _i1.RouteConfig(RestorePasswordPageRoute.name,
+            path: '/restore-password-page'),
         _i1.RouteConfig(RegistrationPageRoute.name, path: '/registration-page'),
         _i1.RouteConfig(HomePageRoute.name, path: '/home-page')
       ];
@@ -56,10 +65,17 @@ class SplashPageRoute extends _i1.PageRouteInfo {
   static const String name = 'SplashPageRoute';
 }
 
-class AuthPageRoute extends _i1.PageRouteInfo {
-  const AuthPageRoute() : super(name, path: '/auth-page');
+class SignInPageRoute extends _i1.PageRouteInfo {
+  const SignInPageRoute() : super(name, path: '/sign-in-page');
 
-  static const String name = 'AuthPageRoute';
+  static const String name = 'SignInPageRoute';
+}
+
+class RestorePasswordPageRoute extends _i1.PageRouteInfo {
+  const RestorePasswordPageRoute()
+      : super(name, path: '/restore-password-page');
+
+  static const String name = 'RestorePasswordPageRoute';
 }
 
 class RegistrationPageRoute extends _i1.PageRouteInfo {

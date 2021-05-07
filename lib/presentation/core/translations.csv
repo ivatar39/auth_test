@@ -17,3 +17,8 @@ home;Home;Главная
 next;Next;Далее
 ok;Ok;Ок
 signOff;Sign off;Выход из аккаунта
+dontHaveAccount;Don't have an account?;Нет аккаунта?
+forgotPassword;Forgot your password?;Забыли пароль?
+restorePassword;Restore Password;Восстановить пароль
+passwordRestoration;Password Restoration;Восстановление пароля
+welcome;Welcome;Добро пожаловать

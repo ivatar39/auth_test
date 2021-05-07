@@ -1,3 +1,4 @@
+import 'package:auth_test/presentation/core/app_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:auth_test/presentation/core/i18n.dart';
 import 'package:auto_route/auto_route.dart';
@@ -9,13 +10,17 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const CircularProgressIndicator(),
+            const CircularProgressIndicator(
+              backgroundColor: kPrimaryColor,
+            ),
             TextButton(
               onPressed: () {
-                context.router.push(const AuthPageRoute());
+                context.router.push(const SignInPageRoute());
               },
               child: Text(I18n.next),
             ),

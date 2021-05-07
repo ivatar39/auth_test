@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: TextButton(
           onPressed: () {
-            context.router.replace(const AuthPageRoute());
+            context.router.replace(const SignInPageRoute());
           },
           child: Text(I18n.signOff),
         ),
