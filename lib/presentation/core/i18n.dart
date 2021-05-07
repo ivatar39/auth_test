@@ -36,6 +36,10 @@ class I18n {
   static String get invalidEmailAndPasswordCombinationError =>
       _getText('invalidEmailAndPasswordCombinationError');
 
+  static String get cancelled => _getText('cancelled');
+
+  static String get emailInUse => _getText('emailInUse');
+
   static String get home => _getText('home');
 
   static String get next => _getText('next');
@@ -53,6 +57,8 @@ class I18n {
   static String get passwordRestoration => _getText('passwordRestoration');
 
   static String get welcome => _getText('welcome');
+
+  static String get emailSent => _getText('emailSent');
 
   static late Map<String, String> _localizedValues;
 
@@ -72,6 +78,8 @@ class I18n {
     'noConnectionError': 'Check your internet connection',
     'invalidEmailAndPasswordCombinationError':
         'Invalid email and password combination',
+    'cancelled': 'Cancelled',
+    'emailInUse': 'Email already in use',
     'home': 'Home',
     'next': 'Next',
     'ok': 'Ok',
@@ -81,6 +89,7 @@ class I18n {
     'restorePassword': 'Restore Password',
     'passwordRestoration': 'Password Restoration',
     'welcome': 'Welcome',
+    'emailSent': 'Email with instructions was sent',
   };
 
   static const _ruValues = {
@@ -99,6 +108,8 @@ class I18n {
     'noConnectionError': 'Проверьте ваше интернет-соединение',
     'invalidEmailAndPasswordCombinationError':
         'Неверная комбинация адреса электронной почты и пароля',
+    'cancelled': 'Отмена',
+    'emailInUse': 'Такой адрес уже используется',
     'home': 'Главная',
     'next': 'Далее',
     'ok': 'Ок',
@@ -108,6 +119,7 @@ class I18n {
     'restorePassword': 'Восстановить пароль',
     'passwordRestoration': 'Восстановление пароля',
     'welcome': 'Добро пожаловать',
+    'emailSent': 'Письмо с инструкциями было отправлено',
   };
 
   static const _allValues = {

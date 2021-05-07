@@ -1,18 +1,18 @@
 import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:auth_test/application/auth/auth_bloc.dart';
-import 'package:auth_test/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:auth_test/application/auth/registration_form/registration_form_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:auth_test/presentation/router/app_router.gr.dart';
 import 'package:auth_test/presentation/core/i18n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:auth_test/application/auth/auth_bloc.dart';
+import 'package:auth_test/presentation/router/app_router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
-class SignInBody extends StatelessWidget {
+class RegistrationForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignInFormBloc, SignInFormState>(
+    return BlocConsumer<RegistrationFormBloc, RegistrationFormState>(
       listener: (context, state) {
-        state.signInFailureOrSuccessOption.fold(
+        state.regFailureOrSuccessOption.fold(
             () {},
             (either) => either.fold(
                   (failure) => {
@@ -50,10 +50,10 @@ class SignInBody extends StatelessWidget {
                     keyboardType: TextInputType.emailAddress,
                     autocorrect: false,
                     onChanged: (value) => context
-                        .read<SignInFormBloc>()
-                        .add(SignInFormEvent.emailChanged(value)),
+                        .read<RegistrationFormBloc>()
+                        .add(RegistrationFormEvent.emailChanged(value)),
                     validator: (_) => context
-                        .read<SignInFormBloc>()
+                        .read<RegistrationFormBloc>()
                         .state
                         .emailAddress
                         .value
@@ -73,13 +73,13 @@ class SignInBody extends StatelessWidget {
                     ),
                     enableSuggestions: false,
                     onChanged: (value) => context
-                        .read<SignInFormBloc>()
-                        .add(SignInFormEvent.passwordChanged(value)),
+                        .read<RegistrationFormBloc>()
+                        .add(RegistrationFormEvent.passwordChanged(value)),
                     autocorrect: false,
                     obscureText: true,
                     keyboardType: TextInputType.visiblePassword,
                     validator: (_) => context
-                        .read<SignInFormBloc>()
+                        .read<RegistrationFormBloc>()
                         .state
                         .password
                         .value
@@ -97,47 +97,12 @@ class SignInBody extends StatelessWidget {
                     height: 50,
                     child: ElevatedButton(
                       onPressed: () {
-                        context.read<SignInFormBloc>().add(const SignInFormEvent
-                            .signInWithEmailAndPasswordPressed());
+                        context.read<RegistrationFormBloc>().add(
+                            const RegistrationFormEvent
+                                .registerWithEmailAndPasswordPressed());
                       },
-                      child: Text(I18n.signIn),
+                      child: Text(I18n.register),
                     ),
-                  ),
-                  const SizedBox(height: 18),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        context.read<SignInFormBloc>().add(
-                            const SignInFormEvent.signInWithGooglePressed());
-                      },
-                      child: Text(I18n.signInWithGoogle),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  Center(child: Text(I18n.forgotPassword)),
-                  TextButton(
-                    onPressed: () {
-                      context
-                          .read<SignInFormBloc>()
-                          .add(const SignInFormEvent.resetPasswordPressed());
-                    },
-                    child: Text(I18n.restorePassword),
-                  ),
-                  const SizedBox(height: 18),
-                  const Divider(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(I18n.dontHaveAccount),
-                      TextButton(
-                        onPressed: () {
-                          context.router.replace(const RegistrationPageRoute());
-                        },
-                        child: Text(I18n.register),
-                      ),
-                    ],
                   ),
                 ],
               ),

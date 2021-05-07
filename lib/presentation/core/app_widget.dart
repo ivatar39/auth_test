@@ -1,6 +1,9 @@
+import 'package:auth_test/application/auth/auth_bloc.dart';
+import 'package:auth_test/presentation/core/injection.dart';
 import 'package:auth_test/presentation/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:auth_test/presentation/core/i18n.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 const String kAppTitle = 'AuthTest';
@@ -12,29 +15,37 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final baseTheme = ThemeData.light();
-    return MaterialApp.router(
-      title: kAppTitle,
-      routeInformationParser: _appRouter.defaultRouteParser(),
-      theme: baseTheme.copyWith(
-        primaryColor: kPrimaryColor,
-        buttonColor: kPrimaryColor,
-        colorScheme: baseTheme.colorScheme.copyWith(
-          primary: kPrimaryColor,
-          secondary: kPrimaryColor,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) =>
+              getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
         ),
-        inputDecorationTheme: InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(2),
+      ],
+      child: MaterialApp.router(
+        title: kAppTitle,
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        theme: baseTheme.copyWith(
+          primaryColor: kPrimaryColor,
+          buttonColor: kPrimaryColor,
+          colorScheme: baseTheme.colorScheme.copyWith(
+            primary: kPrimaryColor,
+            secondary: kPrimaryColor,
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(2),
+            ),
           ),
         ),
+        routerDelegate: _appRouter.delegate(),
+        localizationsDelegates: const [
+          I18nDelegate(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: I18nDelegate.supportedLocals,
       ),
-      routerDelegate: _appRouter.delegate(),
-      localizationsDelegates: const [
-        I18nDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: I18nDelegate.supportedLocals,
     );
   }
 }

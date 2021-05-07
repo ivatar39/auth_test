@@ -4,6 +4,7 @@ import 'package:auth_test/domain/auth/auth_failure.dart';
 import 'package:auth_test/domain/auth/i_auth_facade.dart';
 import 'package:auth_test/domain/auth/user.dart';
 import 'package:auth_test/domain/auth/value_objects.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'firebase_user_mapper.dart';
@@ -60,7 +61,10 @@ class FirebaseAuthFacade implements IAuthFacade {
       );
       return right(unit);
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'wrong-password' || e.code == 'user-not-found') {
+      debugPrint(e.code);
+      if (e.code == 'wrong-password' ||
+          e.code == 'user-not-found' ||
+          e.code == 'too-many-requests') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       } else {
         return left(const AuthFailure.serverError());
@@ -94,4 +98,17 @@ class FirebaseAuthFacade implements IAuthFacade {
         _googleSignIn.signOut(),
         _firebaseAuth.signOut(),
       ]);
+
+  @override
+  Future<Either<AuthFailure, Unit>> sendResetPasswordEmail(
+      EmailAddress emailAddress) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(
+          email: emailAddress.getOrCrash());
+      return left(const AuthFailure.emailSent());
+    } on FirebaseAuthException catch (e) {
+      debugPrint(e.code);
+      return left(const AuthFailure.serverError());
+    }
+  }
 }

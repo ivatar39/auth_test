@@ -1,10 +1,9 @@
 import 'package:auth_test/domain/core/errors.dart';
 import 'package:dartz/dartz.dart';
-import 'package:equatable/equatable.dart';
 
 import 'failures.dart';
 
-abstract class ValueObject<T> extends Equatable {
+abstract class ValueObject<T> {
   const ValueObject();
 
   /// Throws [UnexpectedValueError] containing the [ValueFailure]
@@ -24,5 +23,17 @@ abstract class ValueObject<T> extends Equatable {
   bool isValid() => value.isRight();
 
   @override
-  List<Object?> get props => [value];
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ValueObject &&
+          runtimeType == other.runtimeType &&
+          value == other.value);
+
+  @override
+  int get hashCode => value.hashCode;
+
+  @override
+  String toString() {
+    return 'Value{value: $value}';
+  }
 }

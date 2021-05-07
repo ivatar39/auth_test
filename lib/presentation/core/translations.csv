@@ -13,6 +13,8 @@ register;Register;Зарегистрироваться
 unexpectedError;Unexpected Error;Непредвиденная ошибка
 noConnectionError;Check your internet connection;Проверьте ваше интернет-соединение
 invalidEmailAndPasswordCombinationError;Invalid email and password combination;Неверная комбинация адреса электронной почты и пароля
+cancelled;Cancelled;Отмена
+emailInUse;Email already in use;Такой адрес уже используется
 home;Home;Главная
 next;Next;Далее
 ok;Ok;Ок
@@ -22,3 +24,4 @@ forgotPassword;Forgot your password?;Забыли пароль?
 restorePassword;Restore Password;Восстановить пароль
 passwordRestoration;Password Restoration;Восстановление пароля
 welcome;Welcome;Добро пожаловать
+emailSent;Email with instructions was sent;Письмо с инструкциями было отправлено
