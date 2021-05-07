@@ -3,4 +3,4 @@
 A new Flutter project, which supports authorization process.
 
 command to change translations: 
-flutter pub run flappy_translator lib/presentation/core/translations.csv lib/presentation/core
+flutter pub run flappy_translator

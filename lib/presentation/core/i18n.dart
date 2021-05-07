@@ -38,6 +38,12 @@ class I18n {
 
   static String get home => _getText('home');
 
+  static String get next => _getText('next');
+
+  static String get ok => _getText('ok');
+
+  static String get signOff => _getText('signOff');
+
   static late Map<String, String> _localizedValues;
 
   static const _enValues = {
@@ -57,6 +63,9 @@ class I18n {
     'invalidEmailAndPasswordCombinationError':
         'Invalid email and password combination',
     'home': 'Home',
+    'next': 'Next',
+    'ok': 'Ok',
+    'signOff': 'Sign off',
   };
 
   static const _ruValues = {
@@ -76,6 +85,9 @@ class I18n {
     'invalidEmailAndPasswordCombinationError':
         'Неверная комбинация адреса электронной почты и пароля',
     'home': 'Главная',
+    'next': 'Далее',
+    'ok': 'Ок',
+    'signOff': 'Выход из аккаунта',
   };
 
   static const _allValues = {

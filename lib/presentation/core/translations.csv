@@ -14,3 +14,6 @@ unexpectedError;Unexpected Error;Непредвиденная ошибка
 noConnectionError;Check your internet connection;Проверьте ваше интернет-соединение
 invalidEmailAndPasswordCombinationError;Invalid email and password combination;Неверная комбинация адреса электронной почты и пароля
 home;Home;Главная
+next;Next;Далее
+ok;Ok;Ок
+signOff;Sign off;Выход из аккаунта
