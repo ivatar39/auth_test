@@ -1,0 +1,16 @@
+keys;en;ru
+signIn;Sign in;Вход
+signInWithGoogle;Sign in with Google;Вход через Google
+password;Password;Пароль
+showPassword;Show Password;Показать пароль
+invalidPassword;Invalid Password;Неверный пароль
+shortPassword;Short Password;Короткий пароль
+eMail;E-mail;Электронная почта
+invalidEMail;Invalid E-mail;Неверная электронная почта
+save;Save;Сохранить
+registration;Registration;Регистрация
+register;Register;Зарегистрироваться
+unexpectedError;Unexpected Error;Непредвиденная ошибка
+noConnectionError;Check your internet connection;Проверьте ваше интернет-соединение
+invalidEmailAndPasswordCombinationError;Invalid email and password combination;Неверная комбинация адреса электронной почты и пароля
+home;Home;Главная
